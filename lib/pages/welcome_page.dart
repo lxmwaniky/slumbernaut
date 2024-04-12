@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animate_do/animate_do.dart';
 
@@ -140,16 +142,16 @@ class WelcomePage extends StatelessWidget {
                           SizedBox(
                             height: 20,
                           ),
-                          Container(
-                            height: 50,
-                            margin: EdgeInsets.symmetric(horizontal: 50),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.orange,
-                            ),
-                            child: Center(
-                              child: GestureDetector(
-                                onTap: () {},
+                          GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              height: 50,
+                              margin: EdgeInsets.symmetric(horizontal: 50),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Colors.orange,
+                              ),
+                              child: Center(
                                 child: Text(
                                   'Login',
                                   style: TextStyle(
@@ -171,22 +173,24 @@ class WelcomePage extends StatelessWidget {
                           SizedBox(
                             height: 10,
                           ),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: GestureDetector(
-                                  onTap: () {},
+                          GestureDetector(
+                            onTap: () {},
+                            child: Row(
+                              children: [
+                                Expanded(
                                   child: Container(
                                     height: 50,
+                                    margin: EdgeInsets.symmetric(horizontal: 50),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(50),
-                                      color: Colors.blue,
+                                      color: Colors.orange,
                                     ),
                                     child: Center(
                                       child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           Image.asset(
-                                              'lib/assets/images/google.png'),
+                                              'lib/assets/images/google.png', height: 25, width: 25),
                                           SizedBox(
                                             width: 10,
                                           ),
@@ -203,8 +207,8 @@ class WelcomePage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           )
                         ],
                       ),
