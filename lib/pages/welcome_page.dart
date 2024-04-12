@@ -86,50 +86,55 @@ class WelcomePage extends StatelessWidget {
                                     offset: Offset(0, 10),
                                   ),
                                 ]),
-                            child: Column(children: [
-                              Container(
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                    bottom: BorderSide(color: Colors.white),
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    border: Border(
+                                      bottom: BorderSide(color: Colors.white),
+                                    ),
+                                  ),
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      hintText: 'Email',
+                                      hintStyle: TextStyle(color: Colors.white),
+                                      border: InputBorder.none,
+                                    ),
                                   ),
                                 ),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Email',
-                                    hintStyle: TextStyle(color: Colors.white),
-                                    border: InputBorder.none,
+                                Container(
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    border: Border(
+                                      bottom: BorderSide(color: Colors.white),
+                                    ),
+                                  ),
+                                  child: TextField(
+                                    obscureText: true,
+                                    enableSuggestions: false,
+                                    autocorrect: false,
+                                    decoration: InputDecoration(
+                                      hintText: 'Password',
+                                      hintStyle: TextStyle(color: Colors.white),
+                                      border: InputBorder.none,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                    bottom: BorderSide(color: Colors.white),
-                                  ),
-                                ),
-                                child: TextField(
-                                  obscureText: true,
-                                  enableSuggestions: false,
-                                  autocorrect: false,
-                                  decoration: InputDecoration(
-                                    hintText: 'Password',
-                                    hintStyle: TextStyle(color: Colors.white),
-                                    border: InputBorder.none,
-                                  ),
-                                ),
-                              ),
-                            ]),
+                              ],
+                            ),
                           ),
                           SizedBox(
                             height: 30,
                           ),
                           TextButton(
                             onPressed: () {},
-                            child: Text(
-                              'Forgot Password?',
-                              style: TextStyle(color: Colors.white),
+                            child: GestureDetector(
+                              onTap: () {},
+                              child: Text(
+                                'Forgot Password?',
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -177,7 +182,8 @@ class WelcomePage extends StatelessWidget {
                                     child: Center(
                                       child: Row(
                                         children: [
-                                          Image.asset('lib/assets/images/google.png'),
+                                          Image.asset(
+                                              'lib/assets/images/google.png'),
                                           SizedBox(
                                             width: 10,
                                           ),
