@@ -166,28 +166,31 @@ class WelcomePage extends StatelessWidget {
                           Row(
                             children: [
                               Expanded(
-                                child: Container(
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    color: Colors.blue,
-                                  ),
-                                  child: Center(
-                                    child: Row(
-                                      children: [
-                                        Image.asset('lib/assets/images/google.png'),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text(
-                                          'Google',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 17,
+                                child: GestureDetector(
+                                  onTap: () {},
+                                  child: Container(
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                      color: Colors.blue,
+                                    ),
+                                    child: Center(
+                                      child: Row(
+                                        children: [
+                                          Image.asset('lib/assets/images/google.png'),
+                                          SizedBox(
+                                            width: 10,
                                           ),
-                                        ),
-                                      ],
+                                          Text(
+                                            'Google',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 17,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
