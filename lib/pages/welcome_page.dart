@@ -20,7 +20,8 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
           ),
-          SingleChildScrollView( // Use SingleChildScrollView to handle overflow
+          SingleChildScrollView(
+            // Use SingleChildScrollView to handle overflow
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -32,22 +33,28 @@ class WelcomePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'SLUMBERNAUT',
-                        style: GoogleFonts.roboto(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 40,
-                          color: Colors.white,
+                      FadeInUp(
+                        duration: Duration(milliseconds: 1000),
+                        child: Text(
+                          'SLUMBERNAUT',
+                          style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 40,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                       SizedBox(
                         height: 10,
                       ),
-                      Text(
-                        'Your personal sleep tracker app',
-                        style: GoogleFonts.roboto(
-                          fontSize: 15,
-                          color: Colors.white,
+                      FadeInUp(
+                        duration: Duration(milliseconds: 1300),
+                        child: Text(
+                          'Your personal sleep tracker app',
+                          style: GoogleFonts.roboto(
+                            fontSize: 15,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ],
