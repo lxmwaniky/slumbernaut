@@ -35,6 +35,9 @@ class WelcomePage extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       'Your personal sleep tracker app',
                       style: GoogleFonts.roboto(
@@ -42,6 +45,16 @@ class WelcomePage extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
+                    Expanded(
+                        child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30),
+                        ),
+                      ),
+                    )),
                   ],
                 ),
               ),
