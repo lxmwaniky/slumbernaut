@@ -148,12 +148,15 @@ class WelcomePage extends StatelessWidget {
                               color: Colors.orange,
                             ),
                             child: Center(
-                              child: Text(
-                                'Login',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17,
+                              child: GestureDetector(
+                                onTap: () {},
+                                child: Text(
+                                  'Login',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17,
+                                  ),
                                 ),
                               ),
                             ),
