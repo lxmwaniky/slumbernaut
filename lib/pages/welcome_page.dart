@@ -24,21 +24,21 @@ class WelcomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: 90,
+                height: 30,
               ),
               Padding(
                 padding: EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    FadeAnimation(1, Text(
+                    Text(
                       'SLUMBERNAUT',
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.bold,
                         fontSize: 40,
                         color: Colors.white,
                       ),
-                    ),),
+                    ),
                     SizedBox(
                       height: 10,
                     ),
@@ -53,7 +53,7 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Expanded(
                 // Expanded widget to fill the remaining space
@@ -70,7 +70,7 @@ class WelcomePage extends StatelessWidget {
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 40,
+                          height: 10,
                         ),
                         Container(
                           padding: EdgeInsets.all(20),
@@ -149,39 +149,6 @@ class WelcomePage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'Or connect using',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  color: Colors.blue,
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    'Google',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
                       ],
                     ),
                   ),
