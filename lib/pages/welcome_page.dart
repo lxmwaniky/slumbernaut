@@ -78,68 +78,74 @@ class WelcomePage extends StatelessWidget {
                         SizedBox(
                           height: 40,
                         ),
-                        FadeInUp(duration: Duration(milliseconds: 1400), child: Container(
-                          padding: EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                              color: Colors.teal[200],
-                              borderRadius: BorderRadius.circular(15),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black,
-                                  blurRadius: 20,
-                                  offset: Offset(0, 10),
+                        FadeInUp(
+                          duration: Duration(milliseconds: 1400),
+                          child: Container(
+                            padding: EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                                color: Colors.teal[200],
+                                borderRadius: BorderRadius.circular(15),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black,
+                                    blurRadius: 20,
+                                    offset: Offset(0, 10),
+                                  ),
+                                ]),
+                            child: Column(children: [
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(color: Colors.white),
+                                  ),
                                 ),
-                              ]),
-                          child: Column(children: [
-                            Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  hintText: 'Email',
-                                  hintStyle: TextStyle(color: Colors.white),
-                                  border: InputBorder.none,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    hintText: 'Email',
+                                    hintStyle: TextStyle(color: Colors.white),
+                                    border: InputBorder.none,
+                                  ),
                                 ),
                               ),
-                              child: TextField(
-                                obscureText: true,
-                                enableSuggestions: false,
-                                autocorrect: false,
-                                decoration: InputDecoration(
-                                  hintText: 'Password',
-                                  hintStyle: TextStyle(color: Colors.white),
-                                  border: InputBorder.none,
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(color: Colors.white),
+                                  ),
+                                ),
+                                child: TextField(
+                                  obscureText: true,
+                                  enableSuggestions: false,
+                                  autocorrect: false,
+                                  decoration: InputDecoration(
+                                    hintText: 'Password',
+                                    hintStyle: TextStyle(color: Colors.white),
+                                    border: InputBorder.none,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ]),
-                        ),),
+                            ]),
+                          ),
+                        ),
                         SizedBox(
                           height: 30,
                         ),
-                        FadeInUp(duration: Duration(milliseconds: 1500), child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Forgot Password?',
-                            style: TextStyle(color: Colors.white),
+                        FadeInUp(
+                          duration: Duration(milliseconds: 1500),
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Forgot Password?',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
-                        ),),
+                        ),
                         SizedBox(
                           height: 20,
                         ),
-                        Container(
+                        FadeInUp(duration: Duration(milliseconds: 1600), child: Container(
                           height: 50,
                           margin: EdgeInsets.symmetric(horizontal: 50),
                           decoration: BoxDecoration(
@@ -156,21 +162,21 @@ class WelcomePage extends StatelessWidget {
                               ),
                             ),
                           ),
-                        ),
+                        ),),
                         SizedBox(
                           height: 20,
                         ),
-                        Text(
+                        FadeInUp(duration: Duration(milliseconds: 1700), child: Text(
                           'Or connect using',
                           style: TextStyle(color: Colors.white),
-                        ),
+                        ),),
                         SizedBox(
                           height: 10,
                         ),
                         Row(
                           children: [
                             Expanded(
-                              child: Container(
+                              child: FadeInUp(duration: Duration(milliseconds: 1800), child: Container(
                                 height: 50,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(50),
@@ -187,7 +193,7 @@ class WelcomePage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                            ),
+                            ),),
                           ],
                         )
                       ],
