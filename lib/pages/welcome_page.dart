@@ -58,7 +58,7 @@ class WelcomePage extends StatelessWidget {
                 // Expanded widget to fill the remaining space
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.teal[400],
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(70),
                       topRight: Radius.circular(70),
@@ -74,11 +74,11 @@ class WelcomePage extends StatelessWidget {
                         Container(
                           padding: EdgeInsets.all(20),
                           decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Colors.teal[200],
                               borderRadius: BorderRadius.circular(15),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.orange,
+                                  color: Colors.black,
                                   blurRadius: 20,
                                   offset: Offset(0, 10),
                                 ),
@@ -88,12 +88,12 @@ class WelcomePage extends StatelessWidget {
                               padding: EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 border: Border(
-                                    bottom: BorderSide(color: Colors.grey)),
+                                    bottom: BorderSide(color: Colors.white),),
                               ),
                               child: TextField(
                                 decoration: InputDecoration(
                                   hintText: 'Email',
-                                  hintStyle: TextStyle(color: Colors.grey),
+                                  hintStyle: TextStyle(color: Colors.white),
                                   border: InputBorder.none,
                                 ),
                               ),
@@ -102,7 +102,7 @@ class WelcomePage extends StatelessWidget {
                               padding: EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 border: Border(
-                                    bottom: BorderSide(color: Colors.grey)),
+                                    bottom: BorderSide(color: Colors.white),),
                               ),
                               child: TextField(
                                 obscureText: true,
@@ -110,7 +110,7 @@ class WelcomePage extends StatelessWidget {
                                 autocorrect: false,
                                 decoration: InputDecoration(
                                   hintText: 'Password',
-                                  hintStyle: TextStyle(color: Colors.grey),
+                                  hintStyle: TextStyle(color: Colors.white),
                                   border: InputBorder.none,
                                 ),
                               ),
@@ -124,7 +124,7 @@ class WelcomePage extends StatelessWidget {
                           onPressed: () {},
                           child: Text(
                             'Forgot Password?',
-                            style: TextStyle(color: Colors.grey),
+                            style: TextStyle(color: Colors.white),
                           ),
                         ),
                         SizedBox(
@@ -153,7 +153,7 @@ class WelcomePage extends StatelessWidget {
                         ),
                         Text(
                           'Or connect using',
-                          style: TextStyle(color: Colors.grey),
+                          style: TextStyle(color: Colors.white),
                         ),
                         SizedBox(
                           height: 10,
