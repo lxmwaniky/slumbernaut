@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:animate_do/animate_do.dart';
 
 class WelcomePage extends StatelessWidget {
-  const WelcomePage({super.key});
+  const WelcomePage({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,44 +20,43 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 30,
-              ),
-              Padding(
-                padding: EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'SLUMBERNAUT',
-                      style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Your personal sleep tracker app',
-                      style: GoogleFonts.roboto(
-                        fontSize: 15,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
+          SingleChildScrollView( // Use SingleChildScrollView to handle overflow
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 50,
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Expanded(
-                // Expanded widget to fill the remaining space
-                child: Container(
+                Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'SLUMBERNAUT',
+                        style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 40,
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Your personal sleep tracker app',
+                        style: GoogleFonts.roboto(
+                          fontSize: 15,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Container(
                   decoration: BoxDecoration(
                     color: Colors.teal[400],
                     borderRadius: BorderRadius.only(
@@ -70,7 +69,7 @@ class WelcomePage extends StatelessWidget {
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 10,
+                          height: 40,
                         ),
                         Container(
                           padding: EdgeInsets.all(20),
@@ -89,7 +88,8 @@ class WelcomePage extends StatelessWidget {
                               padding: EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 border: Border(
-                                    bottom: BorderSide(color: Colors.white),),
+                                  bottom: BorderSide(color: Colors.white),
+                                ),
                               ),
                               child: TextField(
                                 decoration: InputDecoration(
@@ -103,7 +103,8 @@ class WelcomePage extends StatelessWidget {
                               padding: EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 border: Border(
-                                    bottom: BorderSide(color: Colors.white),),
+                                  bottom: BorderSide(color: Colors.white),
+                                ),
                               ),
                               child: TextField(
                                 obscureText: true,
@@ -119,7 +120,7 @@ class WelcomePage extends StatelessWidget {
                           ]),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 30,
                         ),
                         TextButton(
                           onPressed: () {},
@@ -149,12 +150,45 @@ class WelcomePage extends StatelessWidget {
                             ),
                           ),
                         ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'Or connect using',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  color: Colors.blue,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'Google',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
