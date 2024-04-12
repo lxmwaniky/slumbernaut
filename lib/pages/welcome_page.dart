@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:animate_do/animate_do.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -30,14 +31,14 @@ class WelcomePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    FadeAnimation(1, Text(
                       'SLUMBERNAUT',
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.bold,
                         fontSize: 40,
                         color: Colors.white,
                       ),
-                    ),
+                    ),),
                     SizedBox(
                       height: 10,
                     ),
