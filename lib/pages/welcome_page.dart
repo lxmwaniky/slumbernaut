@@ -180,17 +180,21 @@ class WelcomePage extends StatelessWidget {
                                 Expanded(
                                   child: Container(
                                     height: 50,
-                                    margin: EdgeInsets.symmetric(horizontal: 50),
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 50),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(50),
                                       color: Colors.orange,
                                     ),
                                     child: Center(
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Image.asset(
-                                              'lib/assets/images/google.png', height: 25, width: 25),
+                                              'lib/assets/images/google.png',
+                                              height: 25,
+                                              width: 25),
                                           SizedBox(
                                             width: 10,
                                           ),
