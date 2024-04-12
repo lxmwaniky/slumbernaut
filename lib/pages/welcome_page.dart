@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomePage extends StatelessWidget {
-  const WelcomePage ({super.key});
+  const WelcomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,8 @@ class WelcomePage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Expanded( // Expanded widget to fill the remaining space
+              Expanded(
+                // Expanded widget to fill the remaining space
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -63,28 +64,31 @@ class WelcomePage extends StatelessWidget {
                       topRight: Radius.circular(70),
                     ),
                   ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 40,),
-                      Container(
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: [BoxShadow(
-                            color: Colors.orange,
-                            blurRadius: 20,
-                            offset: Offset(0, 10),
-                          ),]
+                  child: Padding(
+                    padding: const EdgeInsets.all(30),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 40,
                         ),
-                        child: Column(
-                          children: [
+                        Container(
+                          padding: EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.orange,
+                                  blurRadius: 20,
+                                  offset: Offset(0, 10),
+                                ),
+                              ]),
+                          child: Column(children: [
                             Container(
                               padding: EdgeInsets.all(10),
                               decoration: BoxDecoration(
-                                border: Border(bottom: BorderSide(color: Colors.grey)),
+                                border: Border(
+                                    bottom: BorderSide(color: Colors.grey)),
                               ),
                               child: TextField(
                                 decoration: InputDecoration(
@@ -97,7 +101,8 @@ class WelcomePage extends StatelessWidget {
                             Container(
                               padding: EdgeInsets.all(10),
                               decoration: BoxDecoration(
-                                border: Border(bottom: BorderSide(color: Colors.grey)),
+                                border: Border(
+                                    bottom: BorderSide(color: Colors.grey)),
                               ),
                               child: TextField(
                                 obscureText: true,
@@ -110,12 +115,65 @@ class WelcomePage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                          ]
+                          ]),
                         ),
-                      )
-                    ],
+                        SizedBox(
+                          height: 20,
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Forgot Password?',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          height: 50,
+                          margin: EdgeInsets.symmetric(horizontal: 50),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Colors.orange,
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'Or connect using',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   ),
-                ),
                 ),
               ),
             ],
