@@ -7,7 +7,7 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack( // Wrap your Column with a Stack
+      body: Stack(
         children: [
           Container(
             width: double.infinity,
@@ -15,7 +15,7 @@ class WelcomePage extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('lib/assets/images/background.jpg'),
-                fit: BoxFit.cover, // Adjust how the image fits the container
+                fit: BoxFit.cover,
               ),
             ),
           ),
