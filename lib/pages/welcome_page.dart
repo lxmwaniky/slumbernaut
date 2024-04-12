@@ -14,20 +14,7 @@ class WelcomePage extends StatelessWidget {
             fit: BoxFit.cover, // Adjust how the image fits the container
           ),
         ),
-        child: Center(
-          child: Column(
-            children: [
-              Text(
-                'SLUMBERNAUT',
-                style: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 40, color: Colors.white,),
-              ),
-              Text(
-                'Your personal sleep tracker',
-                style: GoogleFonts.roboto(fontSize: 15, color: Colors.white,),
-              ),
-            ],
-          ),
-        ),
+        child: Center(),
       ),
     );
   }
