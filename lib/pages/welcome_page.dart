@@ -1,90 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
-class WelcomePage extends StatefulWidget {
+class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key});
-
-  @override
-  State<WelcomePage> createState() => _WelcomePageState();
-}
-
-class _WelcomePageState extends State<WelcomePage> {
-  late final TextEditingController _emailController;
-  late final TextEditingController _passwordController;
-
-  @override
-  void initState() {
-    super.initState();
-    _emailController = TextEditingController();
-    _passwordController = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
-
-  Future<User?> signInWithGoogle() async {
-    try {
-      final GoogleSignInAccount? googleSignInAccount =
-          await _googleSignIn.signIn();
-
-      if (googleSignInAccount != null) {
-        final GoogleSignInAuthentication googleSignInAuthentication =
-            await googleSignInAccount.authentication;
-
-        final AuthCredential credential = GoogleAuthProvider.credential(
-          accessToken: googleSignInAuthentication.accessToken,
-          idToken: googleSignInAuthentication.idToken,
-        );
-
-        final UserCredential authResult =
-            await _auth.signInWithCredential(credential);
-
-        return authResult.user;
-      }
-    } catch (error) {
-      print("Error signing in with Google: $error");
-      return null;
-    }
-  }
-
-  Future<void> signInWithEmailAndPassword() async {
-    try {
-      final email = _emailController.text.trim();
-      final password = _passwordController.text;
-      await _auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      // Navigate to the home screen upon successful sign-in
-      Navigator.pushNamed(context, '/home');
-    } catch (error) {
-      print("Error signing in with email and password: $error");
-      // Handle sign-in failure here
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('Sign In Error'),
-          content: Text('Invalid email or password. Please try again.'),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text('OK'),
-            ),
-          ],
-        ),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +21,7 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
           ),
           SingleChildScrollView(
+            // Use SingleChildScrollView to handle overflow
             child: FadeInUp(
               duration: Duration(milliseconds: 1000),
               child: Column(
@@ -176,7 +96,6 @@ class _WelcomePageState extends State<WelcomePage> {
                                     ),
                                   ),
                                   child: TextField(
-                                    controller: _emailController,
                                     decoration: InputDecoration(
                                       hintText: 'Email',
                                       hintStyle: TextStyle(color: Colors.white),
@@ -192,7 +111,6 @@ class _WelcomePageState extends State<WelcomePage> {
                                     ),
                                   ),
                                   child: TextField(
-                                    controller: _passwordController,
                                     obscureText: true,
                                     enableSuggestions: false,
                                     autocorrect: false,
@@ -210,9 +128,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             height: 30,
                           ),
                           TextButton(
-                            onPressed: () {
-                              // Handle forgot password here
-                            },
+                            onPressed: () {},
                             child: GestureDetector(
                               onTap: () {},
                               child: Text(
@@ -225,7 +141,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             height: 20,
                           ),
                           GestureDetector(
-                            onTap: signInWithEmailAndPassword,
+                            onTap: () {},
                             child: Container(
                               height: 50,
                               margin: EdgeInsets.symmetric(horizontal: 50),
@@ -256,16 +172,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             height: 10,
                           ),
                           GestureDetector(
-                            onTap: () {
-                              signInWithGoogle().then((user) {
-                                if (user != null) {
-                                  print('Logged in successfully');
-                                  Navigator.pushNamed(context, '/home');
-                                } else {
-                                  print('Error logging in');
-                                }
-                              });
-                            },
+                            onTap: () {},
                             child: Row(
                               children: [
                                 Expanded(
