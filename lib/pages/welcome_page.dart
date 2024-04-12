@@ -167,8 +167,18 @@ class WelcomePage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(50),
                                   color: Colors.blue,
                                 ),
+                                child: Center(
+                                  child: Text(
+                                    'Google',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17,
+                                    ),
+                                  ),
+                                ),
                               ),
-                            )
+                            ),
                           ],
                         )
                       ],
