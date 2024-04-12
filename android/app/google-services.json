@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "745871435681",
+    "project_id": "uoembu-f3225",
+    "storage_bucket": "uoembu-f3225.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745871435681:android:9b3f7f9481fc7f8973cde0",
+        "android_client_info": {
+          "package_name": "com.lxmwaniky.slumbernaut"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745871435681-bjmobhv3m3oett4fvllorir11pfics4q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDnL1b08LX3t5R8VddIw0qkV_AxgMS8QQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745871435681-bjmobhv3m3oett4fvllorir11pfics4q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "745871435681-5ivvp1ogl2qjka9jto4g5fhl0t9ftaj4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lxmwaniky.universityOfEmbu.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
