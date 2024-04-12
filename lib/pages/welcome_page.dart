@@ -78,7 +78,7 @@ class WelcomePage extends StatelessWidget {
                         SizedBox(
                           height: 40,
                         ),
-                        Container(
+                        FadeInUp(duration: Duration(milliseconds: 1400), child: Container(
                           padding: EdgeInsets.all(20),
                           decoration: BoxDecoration(
                               color: Colors.teal[200],
@@ -125,17 +125,17 @@ class WelcomePage extends StatelessWidget {
                               ),
                             ),
                           ]),
-                        ),
+                        ),),
                         SizedBox(
                           height: 30,
                         ),
-                        TextButton(
+                        FadeInUp(duration: Duration(milliseconds: 1500), child: TextButton(
                           onPressed: () {},
                           child: Text(
                             'Forgot Password?',
                             style: TextStyle(color: Colors.white),
                           ),
-                        ),
+                        ),),
                         SizedBox(
                           height: 20,
                         ),
