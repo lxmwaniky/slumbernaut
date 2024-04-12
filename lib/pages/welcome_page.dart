@@ -8,6 +8,8 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(vertical: 30),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('lib/assets/images/background.jpg'),
@@ -17,13 +19,31 @@ class WelcomePage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              Text(
-                'SLUMBERNAUT',
-                style: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 40, color: Colors.white,),
+              SizedBox(
+                height: 90,
               ),
-              Text(
-                'Your personal sleep tracker app',
-                style: GoogleFonts.roboto(fontSize: 15, color: Colors.white,),
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'SLUMBERNAUT',
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      'Your personal sleep tracker app',
+                      style: GoogleFonts.roboto(
+                        fontSize: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
