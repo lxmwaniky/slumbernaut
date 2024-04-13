@@ -26,9 +26,10 @@ class WelcomePage extends StatelessWidget {
               duration: Duration(milliseconds: 1000),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 50,
+                    height: 90,
                   ),
                   Padding(
                     padding: EdgeInsets.all(20),
@@ -66,10 +67,10 @@ class WelcomePage extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.teal[400],
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(70),
-                        topRight: Radius.circular(70),
-                        bottomLeft: Radius.circular(100),
-                        bottomRight: Radius.circular(100),
+                        topLeft: Radius.circular(50),
+                        topRight: Radius.circular(130),
+                        bottomLeft: Radius.circular(130),
+                        bottomRight: Radius.circular(50),
                       ),
                     ),
                     child: Padding(
@@ -114,8 +115,8 @@ class WelcomePage extends StatelessWidget {
                                   ),
                                   child: TextField(
                                     decoration: InputDecoration(
-                                      hintText: 'Email',
-                                      hintStyle: TextStyle(color: Colors.white),
+                                      label: Text('Username'),
+                                      hintText: 'Enter your name',
                                       border: InputBorder.none,
                                     ),
                                   ),
