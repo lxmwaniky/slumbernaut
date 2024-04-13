@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slumbernaut/pages/welcome_page.dart';
 
 class HomePage extends StatelessWidget {
   final String user;
@@ -10,6 +11,13 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Welcome $user'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => WelcomePage(),),);
+            },
+          ),],
       ),
       body: Center(
         child: Text('Welcome $user to the Home Page!'),
