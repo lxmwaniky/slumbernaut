@@ -66,6 +66,7 @@ class WelcomePage extends StatelessWidget {
                     height: 50,
                   ),
                   Container(
+                    height: 450,
                     decoration: BoxDecoration(
                       color: Colors.teal[400],
                       borderRadius: BorderRadius.only(
@@ -76,22 +77,22 @@ class WelcomePage extends StatelessWidget {
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(30),
+                      padding: const EdgeInsets.all(50),
                       child: Column(
                         children: [
                           SizedBox(
-                            height: 20,
+                            height: 50,
                           ),
                           Text(
-                            'WELCOME SLUMBERNAUT,',
+                            'WELCOME, SLUMBERNAUT',
                             style: GoogleFonts.roboto(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
-                                fontSize: 20),
+                                fontSize: 20,),
                             textAlign: TextAlign.center,
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 30,
                           ),
                           Container(
                             padding: EdgeInsets.symmetric(
@@ -103,7 +104,7 @@ class WelcomePage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(15),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black,
+                                    color: Colors.orange,
                                     blurRadius: 20,
                                     offset: Offset(0, 10),
                                   ),
