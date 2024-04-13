@@ -85,17 +85,19 @@ class WelcomePage extends StatelessWidget {
                           Text(
                             'WELCOME SLUMBERNAUT,',
                             style: GoogleFonts.roboto(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 20
-                            ),
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 20),
                             textAlign: TextAlign.center,
                           ),
                           SizedBox(
                             height: 20,
                           ),
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), // Increased padding around the text input
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical:
+                                    10), // Increased padding around the text input
                             decoration: BoxDecoration(
                                 color: Colors.teal[200],
                                 borderRadius: BorderRadius.circular(15),
@@ -116,8 +118,10 @@ class WelcomePage extends StatelessWidget {
                                     ),
                                   ),
                                   child: TextField(
+                                    textCapitalization: TextCapitalization.words,
                                     decoration: InputDecoration(
-                                      labelText: 'Enter your name', // Changed label to labelText
+                                      labelText:
+                                          'Enter your name', // Changed label to labelText
                                       border: InputBorder.none,
                                     ),
                                     onSubmitted: (name) {
@@ -126,7 +130,10 @@ class WelcomePage extends StatelessWidget {
                                       // Navigate to the home page
                                       Navigator.pushReplacement(
                                         context,
-                                        MaterialPageRoute(builder: (context) => HomePage(user: name)),
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              HomePage(user: name),
+                                        ),
                                       );
                                     },
                                   ),
@@ -138,7 +145,34 @@ class WelcomePage extends StatelessWidget {
                             height: 30,
                           ),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              // Retrieve the user's name from the text field
+                              String name =
+                                  ''; // Initialize with an empty string for now
+                              if (name.isNotEmpty) {
+                                // Save the user's name to shared preferences
+                                saveUserName(name);
+                                // Navigate to the home page
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => HomePage(user: name),
+                                  ),
+                                );
+                              } else {
+                                // Show a snackbar to prompt the user to enter their name
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Please enter your name before proceeding.',
+                                    ),
+                                    duration: Duration(
+                                      seconds: 2,
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
                             child: Container(
                               height: 50,
                               margin: EdgeInsets.symmetric(horizontal: 50),
@@ -147,7 +181,8 @@ class WelcomePage extends StatelessWidget {
                                 color: Colors.orange,
                               ),
                               child: Center(
-                                child: FadeIn( // Added a subtle fade-in animation
+                                child: FadeIn(
+                                  // Added a subtle fade-in animation
                                   child: Text(
                                     'Proceed',
                                     style: TextStyle(
