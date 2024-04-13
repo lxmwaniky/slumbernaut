@@ -1,12 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:slumbernaut/pages/home_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key});
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController _nameController = TextEditingController();
+
+    Future<void> _proceed() async {
+      final name = _nameController.text.trim();
+      if (name.isNotEmpty) {
+        // Store the user's name in Firestore
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .set({'name': name});
+
+        // Navigate to the home page
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
+        );
+      } else {
+        // Show an error message if the name field is empty
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Error'),
+            content: Text('Please enter your name.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }
+    }
+
     return Scaffold(
       body: Stack(
         children: [
@@ -83,17 +120,17 @@ class WelcomePage extends StatelessWidget {
                           Text(
                             'WELCOME SLUMBERNAUT,',
                             style: GoogleFonts.roboto(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 20
-                            ),
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 20),
                             textAlign: TextAlign.center,
                           ),
                           SizedBox(
                             height: 20,
                           ),
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), // Increased padding around the text input
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
                             decoration: BoxDecoration(
                                 color: Colors.teal[200],
                                 borderRadius: BorderRadius.circular(15),
@@ -110,12 +147,14 @@ class WelcomePage extends StatelessWidget {
                                   padding: EdgeInsets.all(5),
                                   decoration: BoxDecoration(
                                     border: Border(
-                                      bottom: BorderSide(color: Colors.white),
+                                      bottom:
+                                          BorderSide(color: Colors.white),
                                     ),
                                   ),
                                   child: TextField(
+                                    controller: _nameController,
                                     decoration: InputDecoration(
-                                      labelText: 'Enter your name', // Changed label to labelText
+                                      labelText: 'Enter your name',
                                       border: InputBorder.none,
                                     ),
                                   ),
@@ -127,16 +166,17 @@ class WelcomePage extends StatelessWidget {
                             height: 30,
                           ),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: _proceed,
                             child: Container(
                               height: 50,
-                              margin: EdgeInsets.symmetric(horizontal: 50),
+                              margin:
+                                  EdgeInsets.symmetric(horizontal: 50),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
                                 color: Colors.orange,
                               ),
                               child: Center(
-                                child: FadeIn( // Added a subtle fade-in animation
+                                child: FadeIn(
                                   child: Text(
                                     'Proceed',
                                     style: TextStyle(
