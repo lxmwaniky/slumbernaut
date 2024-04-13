@@ -68,8 +68,8 @@ class WelcomePage extends StatelessWidget {
                       color: Colors.teal[400],
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(50),
-                        topRight: Radius.circular(130),
-                        bottomLeft: Radius.circular(130),
+                        topRight: Radius.circular(150),
+                        bottomLeft: Radius.circular(150),
                         bottomRight: Radius.circular(50),
                       ),
                     ),
@@ -81,7 +81,7 @@ class WelcomePage extends StatelessWidget {
                             height: 20,
                           ),
                           Text(
-                            'Welcome Slumbernaut, \nEnter Your name to Proceed',
+                            'WELCOME SLUMBERNAUT,',
                             style: GoogleFonts.roboto(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
@@ -107,7 +107,7 @@ class WelcomePage extends StatelessWidget {
                             child: Column(
                               children: [
                                 Container(
-                                  padding: EdgeInsets.all(10),
+                                  padding: EdgeInsets.all(5),
                                   decoration: BoxDecoration(
                                     border: Border(
                                       bottom: BorderSide(color: Colors.white),
@@ -115,8 +115,7 @@ class WelcomePage extends StatelessWidget {
                                   ),
                                   child: TextField(
                                     decoration: InputDecoration(
-                                      label: Text('Username'),
-                                      hintText: 'Enter your name',
+                                      labelText: 'Enter your name', // Changed label to labelText
                                       border: InputBorder.none,
                                     ),
                                   ),
@@ -126,9 +125,6 @@ class WelcomePage extends StatelessWidget {
                           ),
                           SizedBox(
                             height: 30,
-                          ),
-                          SizedBox(
-                            height: 20,
                           ),
                           GestureDetector(
                             onTap: () {},
