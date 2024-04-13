@@ -66,7 +66,7 @@ class WelcomePage extends StatelessWidget {
                     height: 50,
                   ),
                   Container(
-                    height: 450,
+                    height: 420,
                     decoration: BoxDecoration(
                       color: Colors.teal[400],
                       borderRadius: BorderRadius.only(
@@ -143,7 +143,7 @@ class WelcomePage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            height: 30,
+                            height: 50,
                           ),
                           GestureDetector(
                             onTap: () {
