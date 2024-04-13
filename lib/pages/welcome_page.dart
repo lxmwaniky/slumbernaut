@@ -93,7 +93,7 @@ class WelcomePage extends StatelessWidget {
                             height: 20,
                           ),
                           Container(
-                            padding: EdgeInsets.all(20),
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), // Increased padding around the text input
                             decoration: BoxDecoration(
                                 color: Colors.teal[200],
                                 borderRadius: BorderRadius.circular(15),
@@ -136,12 +136,14 @@ class WelcomePage extends StatelessWidget {
                                 color: Colors.orange,
                               ),
                               child: Center(
-                                child: Text(
-                                  'Proceed',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 17,
+                                child: FadeIn( // Added a subtle fade-in animation
+                                  child: Text(
+                                    'Proceed',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17,
+                                    ),
                                   ),
                                 ),
                               ),
