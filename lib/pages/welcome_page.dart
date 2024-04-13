@@ -32,28 +32,31 @@ class WelcomePage extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.all(20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'SLUMBERNAUT',
-                          style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 40,
-                            color: Colors.white,
+                    child: FadeInDown(
+                      duration: Duration(milliseconds: 500),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'SLUMBERNAUT',
+                            style: GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 40,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          'Your personal sleep tracker app',
-                          style: GoogleFonts.roboto(
-                            fontSize: 15,
-                            color: Colors.white,
+                          SizedBox(
+                            height: 10,
                           ),
-                        ),
-                      ],
+                          Text(
+                            'Your personal sleep tracker app',
+                            style: GoogleFonts.roboto(
+                              fontSize: 15,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -65,6 +68,8 @@ class WelcomePage extends StatelessWidget {
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(70),
                         topRight: Radius.circular(70),
+                        bottomLeft: Radius.circular(100),
+                        bottomRight: Radius.circular(100),
                       ),
                     ),
                     child: Padding(
@@ -72,7 +77,19 @@ class WelcomePage extends StatelessWidget {
                       child: Column(
                         children: [
                           SizedBox(
-                            height: 40,
+                            height: 20,
+                          ),
+                          Text(
+                            'Welcome Slumbernaut, \nEnter Your name to Proceed',
+                            style: GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 20
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(
+                            height: 20,
                           ),
                           Container(
                             padding: EdgeInsets.all(20),
@@ -103,39 +120,11 @@ class WelcomePage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  padding: EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                    border: Border(
-                                      bottom: BorderSide(color: Colors.white),
-                                    ),
-                                  ),
-                                  child: TextField(
-                                    obscureText: true,
-                                    enableSuggestions: false,
-                                    autocorrect: false,
-                                    decoration: InputDecoration(
-                                      hintText: 'Password',
-                                      hintStyle: TextStyle(color: Colors.white),
-                                      border: InputBorder.none,
-                                    ),
-                                  ),
-                                ),
                               ],
                             ),
                           ),
                           SizedBox(
                             height: 30,
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            child: GestureDetector(
-                              onTap: () {},
-                              child: Text(
-                                'Forgot Password?',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
                           ),
                           SizedBox(
                             height: 20,
@@ -151,7 +140,7 @@ class WelcomePage extends StatelessWidget {
                               ),
                               child: Center(
                                 child: Text(
-                                  'Login',
+                                  'Proceed',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -161,57 +150,6 @@ class WelcomePage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            'Or connect using',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Container(
-                                    height: 50,
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 50),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(50),
-                                      color: Colors.orange,
-                                    ),
-                                    child: Center(
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Image.asset(
-                                              'lib/assets/images/google.png',
-                                              height: 25,
-                                              width: 25),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Text(
-                                            'Google',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 17,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
                         ],
                       ),
                     ),
