@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:slumbernaut/firebase_options.dart';
 import 'package:slumbernaut/pages/welcome_page.dart';
 import 'package:slumbernaut/pages/home_page.dart';
 import 'package:slumbernaut/auth/auth_service.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
@@ -39,7 +45,7 @@ class AuthWrapper extends StatelessWidget {
           if (snapshot.data == true) {
             return WelcomePage(); // Navigate to WelcomePage if user is signed in
           } else {
-            return HomePage(); // Navigate to LoginPage if user is not signed in
+            return HomePage(user: ''); // Navigate to HomePage if user is not signed in
           }
         }
       },
