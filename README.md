@@ -1,6 +1,6 @@
 # Slumbernaut
 
-Slumbernaut is a sleep tracking and management application designed to help users improve their sleep habits and overall well-being.
+[Slumbernaut](https://github.com/lxmwaniky/slumbernaut/releases/download/v1.0.0/app-release.apk) is a sleep tracking and management application designed to help users improve their sleep habits and overall well-being.
 
 ## Features
 
