@@ -11,9 +11,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  DateTime? sleepStartTime;
-  DateTime? sleepEndTime;
-  Duration? sleepDuration;
+  DateTime? lastSleepStartTime;
+  DateTime? lastSleepEndTime;
+  Duration totalSleepDuration = Duration.zero;
 
   @override
   Widget build(BuildContext context) {
@@ -69,13 +69,18 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 20,
+                      ),
+                      if (totalSleepDuration != Duration.zero)
+                        _buildTotalSleepDurationContainer(totalSleepDuration),
+                      SizedBox(
+                        height: 20,
                       ),
                       _buildSleepButton(
                         text: 'Go to Sleep',
                         onPressed: () {
                           setState(() {
-                            sleepStartTime = DateTime.now();
+                            lastSleepStartTime = DateTime.now();
                           });
                         },
                       ),
@@ -83,23 +88,15 @@ class _HomePageState extends State<HomePage> {
                       _buildSleepButton(
                         text: 'Wake Up',
                         onPressed: () {
-                          setState(() {
-                            sleepEndTime = DateTime.now();
-                            if (sleepStartTime != null) {
-                              sleepDuration = sleepEndTime!.difference(sleepStartTime!);
-                            }
-                          });
+                          if (lastSleepStartTime != null) {
+                            setState(() {
+                              lastSleepEndTime = DateTime.now();
+                              totalSleepDuration += lastSleepEndTime!.difference(lastSleepStartTime!);
+                              lastSleepStartTime = null;
+                            });
+                          }
                         },
                       ),
-                      SizedBox(height: 20),
-                      if (sleepDuration != null)
-                        Text(
-                          'You slept for ${sleepDuration!.inHours} hours and ${sleepDuration!.inMinutes.remainder(60)} minutes',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),
                     ],
                   ),
                 ),
@@ -107,6 +104,25 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildTotalSleepDurationContainer(Duration duration) {
+    int hours = duration.inHours;
+    int minutes = duration.inMinutes.remainder(60);
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.teal[400],
+      ),
+      child: Text(
+        'Total Sleep Duration: $hours hours and $minutes minutes',
+        style: TextStyle(
+          fontSize: 18,
+          color: Colors.white,
+        ),
       ),
     );
   }
