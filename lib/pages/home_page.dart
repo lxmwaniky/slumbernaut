@@ -12,6 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isSleeping = false;
   DateTime? lastSleepStartTime;
   DateTime? lastSleepEndTime;
   Duration totalSleepDuration = Duration.zero;
@@ -62,11 +63,7 @@ class _HomePageState extends State<HomePage> {
                       FadeInLeft(
                         child: Text(
                           '$greeting, ${widget.user}!',
-                          style: GoogleFonts.roboto(
-                            fontSize: 35,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: GoogleFonts.roboto(fontSize: 35, color: Colors.white, fontWeight: FontWeight.bold,),
                         ),
                       ),
                       SizedBox(
@@ -78,25 +75,21 @@ class _HomePageState extends State<HomePage> {
                         height: 20,
                       ),
                       _buildSleepButton(
-                        text: 'Go to Sleep',
+                        text: isSleeping ? 'Awake' : 'Go to Sleep',
+                        color: isSleeping ? Colors.green : Colors.orange,
                         onPressed: () {
                           setState(() {
-                            lastSleepStartTime = DateTime.now();
-                          });
-                        },
-                      ),
-                      SizedBox(height: 10),
-                      _buildSleepButton(
-                        text: 'Wake Up',
-                        onPressed: () {
-                          if (lastSleepStartTime != null) {
-                            setState(() {
+                            if (isSleeping) {
+                              // User is waking up
                               lastSleepEndTime = DateTime.now();
-                              totalSleepDuration += lastSleepEndTime!
-                                  .difference(lastSleepStartTime!);
+                              totalSleepDuration += lastSleepEndTime!.difference(lastSleepStartTime!);
                               lastSleepStartTime = null;
-                            });
-                          }
+                            } else {
+                              // User is going to sleep
+                              lastSleepStartTime = DateTime.now();
+                            }
+                            isSleeping = !isSleeping;
+                          });
                         },
                       ),
                     ],
@@ -131,28 +124,20 @@ class _HomePageState extends State<HomePage> {
             Text(
               'Sleep Time',
               style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.bold
+              ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              '$hours H | $minutes M',
-              style: GoogleFonts.roboto(
-                  fontSize: 25,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w900),
-            ),
+            const SizedBox(height: 10,),
+            Text('$hours H | $minutes M', style: GoogleFonts.roboto(fontSize: 25, color: Colors.white, fontWeight: FontWeight.w900),),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildSleepButton(
-      {required String text, required VoidCallback onPressed}) {
+  Widget _buildSleepButton({required String text, required Color color, required VoidCallback onPressed}) {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
@@ -166,7 +151,7 @@ class _HomePageState extends State<HomePage> {
             bottomLeft: Radius.circular(150),
             bottomRight: Radius.circular(50),
           ),
-          color: Colors.orange,
+          color: color,
         ),
         child: Text(
           text,
