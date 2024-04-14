@@ -9,6 +9,10 @@ Slumbernaut is a sleep tracking and management application designed to help user
 - Analyze your sleep patterns over time.
 - Customizable alarms and wake-up routines.
 
+## View
+![alt text](/lib/assets/images/image.png)![alt text](/lib/assets/images/image-1.png)![alt text](/lib/assets/images/image-2.png)![alt text](/lib/assets/images/image-3.png)![alt text](/lib/assets/images/image-4.png)![alt text](/lib/assets/images/image-5.png)
+
+
 ## Issues
 If you encounter any issues with Slumbernaut, please open an issue on the [GitHub repository](https://github.com/lxmaniky/slumbernaut/issues).
 
