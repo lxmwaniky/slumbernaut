@@ -1,16 +1,44 @@
-# slumbernaut
+# Slumbernaut
 
-A new Flutter project.
+Slumbernaut is a sleep tracking and management application designed to help users improve their sleep habits and overall well-being.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Track your sleep duration and quality.
+- Set sleep goals and receive reminders.
+- Analyze your sleep patterns over time.
+- Customizable alarms and wake-up routines.
 
-A few resources to get you started if this is your first Flutter project:
+## Issues
+If you encounter any issues with Slumbernaut, please open an issue on the [GitHub repository](https://github.com/lxmaniky/slumbernaut/issues).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Contributing
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+If you would like to contribute to the development of Slumbernaut, please follow these steps:
+
+1. Fork the [repository](https://github.com/lxmaniky/)
+2. Create a new branch for your changes:
+
+```bash
+git checkout -b my-new-feature
+```
+3. Commit your changes:
+
+```bash
+git commit -m "Added some feature"
+```
+4. Push your changes to the remote repository:
+
+```bash
+git push origin my-new-feature
+```
+
+
+
+## Contact
+
+For any questions or feedback, please contact the developer at lekko254@gmail.com
+
+## Credits
+
+- [Alex Mwaniki](https://linkedin.com/in/lxmaniky)
