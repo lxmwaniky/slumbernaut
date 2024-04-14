@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:slumbernaut/pages/welcome_page.dart';
 
 class HomePage extends StatelessWidget {
   final String user;
@@ -9,18 +8,15 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Welcome $user'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.exit_to_app),
-            onPressed: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => WelcomePage(),),);
-            },
-          ),],
-      ),
-      body: Center(
-        child: Text('Welcome $user to the Home Page!'),
+      body: Container(
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(vertical: 30),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('lib/assets/images/homepage_background.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }
