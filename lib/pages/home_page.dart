@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'dart:async';
 
 class HomePage extends StatefulWidget {
   final String user;
@@ -16,6 +18,23 @@ class _HomePageState extends State<HomePage> {
   DateTime? lastSleepStartTime;
   DateTime? lastSleepEndTime;
   Duration totalSleepDuration = Duration.zero;
+  Timer? timer;
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize the timer to update the time every second
+    timer = Timer.periodic(Duration(seconds: 1), (Timer t) {
+      setState(() {}); // Update the UI every second
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    // Cancel the timer when the widget is disposed
+    timer?.cancel();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,16 +82,47 @@ class _HomePageState extends State<HomePage> {
                       FadeInLeft(
                         child: Text(
                           '$greeting, ${widget.user}!',
-                          style: GoogleFonts.roboto(fontSize: 35, color: Colors.white, fontWeight: FontWeight.bold,),
+                          style: GoogleFonts.roboto(
+                            fontSize: 35,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                       SizedBox(
                         height: 20,
                       ),
-                      if (totalSleepDuration != Duration.zero)
-                        _buildTotalSleepDurationContainer(totalSleepDuration),
+                      FadeInLeft(
+                        child: Center(
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.red),
+                              borderRadius: BorderRadius.all(Radius.circular(10),),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  DateFormat('HH:mm:ss').format(now), // Time
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      _buildTotalSleepDurationContainer(
+                          totalSleepDuration), // Display sleep timer container by default
                       SizedBox(
-                        height: 20,
+                        height: 100,
                       ),
                       _buildSleepButton(
                         text: isSleeping ? 'Awake' : 'Go to Sleep',
@@ -82,7 +132,8 @@ class _HomePageState extends State<HomePage> {
                             if (isSleeping) {
                               // User is waking up
                               lastSleepEndTime = DateTime.now();
-                              totalSleepDuration += lastSleepEndTime!.difference(lastSleepStartTime!);
+                              totalSleepDuration += lastSleepEndTime!
+                                  .difference(lastSleepStartTime!);
                               lastSleepStartTime = null;
                             } else {
                               // User is going to sleep
@@ -106,59 +157,78 @@ class _HomePageState extends State<HomePage> {
   Widget _buildTotalSleepDurationContainer(Duration duration) {
     int hours = duration.inHours;
     int minutes = duration.inMinutes.remainder(60);
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(50),
-          topRight: Radius.circular(150),
-          bottomLeft: Radius.circular(150),
-          bottomRight: Radius.circular(50),
-        ),
-        color: Colors.teal[400],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(50),
-        child: Column(
-          children: [
-            Text(
-              'Sleep Time',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
-                fontWeight: FontWeight.bold
-              ),
+    return Center(
+      child: FadeInUp(
+        child: Container(
+          width: 400,
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(50),
+              topRight: Radius.circular(50),
+              bottomLeft: Radius.circular(50),
+              bottomRight: Radius.circular(50),
             ),
-            const SizedBox(height: 10,),
-            Text('$hours H | $minutes M', style: GoogleFonts.roboto(fontSize: 25, color: Colors.white, fontWeight: FontWeight.w900),),
-          ],
+            color: Colors.purple[300],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(50),
+            child: Column(
+              children: [
+                Text(
+                  'Sleep Time',
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  '$hours H | $minutes M',
+                  style: GoogleFonts.roboto(
+                      fontSize: 25,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildSleepButton({required String text, required Color color, required VoidCallback onPressed}) {
+  Widget _buildSleepButton(
+      {required String text,
+      required Color color,
+      required VoidCallback onPressed}) {
     return GestureDetector(
       onTap: onPressed,
-      child: Container(
-        height: 50,
-        width: 150,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(50),
-            topRight: Radius.circular(150),
-            bottomLeft: Radius.circular(150),
-            bottomRight: Radius.circular(50),
-          ),
-          color: color,
-        ),
-        child: Text(
-          text,
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
+      child: FadeInUp(
+        child: Center(
+          child: Container(
+            height: 50,
+            width: 150,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50),
+                topRight: Radius.circular(150),
+                bottomLeft: Radius.circular(150),
+                bottomRight: Radius.circular(50),
+              ),
+              color: color,
+            ),
+            child: Text(
+              text,
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
           ),
         ),
       ),
